@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+<div class="cart-container">
+
+    {% if items %}
+    <form method="POST" class="cart-layout">
+        {% csrf_token %}
+
+        <!-- LEFT: CART ITEMS -->
+        <div class="cart-left">
+            <h2>My Cart ({{ items|length }} items)</h2>
+
+            {% for item in items %}
+            <div class="cart-card">
+
+                <input type="checkbox" name="selected_items" value="{{ item.id }}">
+
+                <img src="{{ item.product.image.url }}" class="cart-img">
+
+                <div class="cart-info">
+                    <h3>{{ item.product.name }}</h3>
+
+                    <p class="price">₹{{ item.total|floatformat:2 }}</p>
+
+                    <p class="sub-text">
+                        ₹{{ item.product.price }} × {{ item.quantity }}
+                    </p>
+
+                    <p class="qty">Quantity: {{ item.quantity }}</p>
+
+                    <button type="submit" name="delete_item" value="{{ item.id }}" class="remove-btn">
+                        Remove
+                    </button>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- RIGHT: PRICE BOX -->
+        <div class="cart-right">
+            <h3>PRICE DETAILS</h3>
+
+            <div class="price-row">
+                <span>Price ({{ items|length }} items)</span>
+                <span>₹{{ total_price|floatformat:2 }}</span>
+            </div>
+
+            <hr>
+
+            <div class="price-total">
+                <span>Total Amount</span>
+                <span>₹{{ total_price|floatformat:2 }}</span>
+            </div>
+
+            <a href="{% url 'checkout' %}" class="btn-place-order">
+                Place Order
+            </a>
+        </div>
+
+    </form>
+
+    {% else %}
+    <div class="empty-box">
+        <h3>Your cart is empty</h3>
+        <a href="{% url 'viewproduct' %}" class="shop-btn">Shop Now</a>
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

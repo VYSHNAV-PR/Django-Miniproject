@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Product Details{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/product_details.css' %}">
+
+<div class="product-container">
+
+    <!-- IMAGE SECTION -->
+    <div class="image">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    </div>
+
+    <!-- DETAILS SECTION -->
+    <div class="details">
+        <h2>{{ product.name }}</h2>
+        <h3>₹{{ product.price }}</h3>
+
+        <p class="desc">{{ product.description }}</p>
+
+        <!-- BUTTONS -->
+        <div class="action-buttons">
+            <a class="btn cart-btn" href="{% url 'add_to_cart' product.id %}">
+                Add to Cart
+            </a>
+
+            <a class="btn buy-btn" href="{% url 'checkout' %}">
+                Buy Now
+            </a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Products{% endblock %}
+{% block content %}
+{%block extra_css%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/view_products.css' %}">
+{%endblock%}
+
+<!-- SEARCH BAR -->
+<div class="search-bar">
+    <form method="GET" action="{% url 'search' %}">
+        <input type="text" name="q" placeholder="Search Samsung phones..." value="{{ query }}">
+        <button type="submit" class="btn btn-cart">Search</button>
+    </form>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+    {% for product in products %}
+    <div class="card">
+        <img src="{{ product.image.url }}" alt="">
+        <h3>{{ product.name }}</h3>
+        <p class="price">₹ {{ product.price }}</p>
+        <!-- <p style="color: black;">{{ product.description }}</p> -->
+
+        <form method="POST" action="{% url 'add_to_cart' product.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-cart">Add to Cart</button>
+             <a class="btn btn-view" href="{% url 'product_detail' product.id %}">View Details</a>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

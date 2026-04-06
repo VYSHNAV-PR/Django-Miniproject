@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% block title%}HOME{%endblock%}
+{% block content %}
+{% load static%}
+<link rel="stylesheet" href="{% static 'css/home.css'%}">
+<div class="hero-section">
+
+    <!-- HERO CONTENT -->
+    <div class="hero-box">
+        <h1>Samsung Galaxy Store</h1>
+        <p>Discover the Latest Samsung Smartphones</p>
+        <a href="{% url 'viewproduct' %}" class="explore-btn">Explore More</a>
+    </div>
+
+    <!-- CAROUSEL -->
+    <div id="samsungCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <img src="{% static 'images/caro.jpg' %}" class="carousel-img">
+            </div>
+
+            <div class="carousel-item">
+                <img src="{% static 'images/caro1.jpg' %}" class="carousel-img">
+            </div>
+
+            <div class="carousel-item">
+                <img src="{% static 'images/caro2.jpg' %}" class="carousel-img">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+
+{% endblock %}

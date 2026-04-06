@@ -1,0 +1,102 @@
+/* Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.register-container {
+    width: 480px;
+    padding: 35px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    color: #fff;
+   
+}
+
+/* Heading */
+.register-container h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+     text-align: center;
+}
+
+/* Input fields */
+.register-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+
+    border-radius: 8px;
+    border: none;
+    outline: none;
+
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+/* Placeholder */
+.register-container input::placeholder {
+    color: #eee;
+}
+
+/* Input focus effect */
+.register-container input:focus {
+    background: rgba(255,255,255,0.3);
+    border: 1px solid #00c9a7;
+}
+
+/* Button */
+.register-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover */
+.register-btn:hover {
+    background: #00a78e;
+    transform: scale(1.05);
+}
+
+/* Login link */
+.login-link {
+    display: block;
+    margin-top: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+
+}
+
+/* Hover link */
+.login-link:hover {
+    text-decoration: underline;
+    color: #92fe9d;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .register-container {
+        width: 90%;
+        padding: 25px;
+    }
+}

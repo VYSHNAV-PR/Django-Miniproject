@@ -1,0 +1,40 @@
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/register.css'%}">
+<title>Register</title>
+
+<div class="register-container">
+    <h2>Create Account</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </p>
+
+        <p>
+            {{ form.email.label_tag }}
+            {{ form.email }}
+        </p>
+
+        <p>
+            {{ form.password1.label_tag }}
+            {{ form.password1 }}
+        </p>
+
+        <p>
+            {{ form.password2.label_tag }}
+            {{ form.password2 }}
+        </p>
+
+        <input type="submit" value="Register" class="register-btn" style="background: #00c9a7;">
+
+        <a href="{% url 'login' %}" class="login-link">
+            Already have an account? Login
+        </a>
+    </form>
+
+</div>
+
+{%endblock%}
