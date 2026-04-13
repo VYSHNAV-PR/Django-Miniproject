@@ -42,7 +42,7 @@ body{
 .continue-btn {
     display: inline-block;
     padding: 12px 25px;
-    background: #fb641b;
+    background: blue;
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -51,5 +51,5 @@ body{
 }
 
 .continue-btn:hover {
-    background: #d94f00;
+    background: blue;
 }

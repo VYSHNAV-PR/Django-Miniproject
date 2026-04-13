@@ -3,6 +3,7 @@
 {% block title %}Product Details{% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/product_details.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 <div class="product-container">
 
@@ -21,11 +22,11 @@
         <!-- BUTTONS -->
         <div class="action-buttons">
             <a class="btn cart-btn" href="{% url 'add_to_cart' product.id %}">
-                Add to Cart
+                <i class="bi bi-cart"></i> Add to Cart
             </a>
 
             <a class="btn buy-btn" href="{% url 'checkout' %}">
-                Buy Now
+                <i class="bi bi-lightning-fill"></i> Buy Now
             </a>
         </div>
     </div>

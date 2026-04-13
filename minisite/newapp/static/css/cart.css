@@ -1,7 +1,8 @@
 /* PAGE */
-body{
+body {
     background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
+
 .cart-container {
     background: white;
     padding: 20px;
@@ -85,8 +86,15 @@ body{
     border: none;
     background: #ff4d4d;
     color: #fff;
-    font-size: 13px;
+    font-size: 16px;
+    /* slightly bigger for icon */
     cursor: pointer;
+
+    float: right;
+    /* 🔥 moves button to right */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .remove-btn:hover {
@@ -96,7 +104,7 @@ body{
 /* RIGHT SECTION */
 .cart-right {
     flex: 1;
-   background: #dedbdb;
+    background: #dedbdb;
     padding: 15px;
     border: 1px solid #ddd;
 }
